@@ -1,0 +1,162 @@
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  padding-bottom: 20px;
+  line-height: 1.2;
+}
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+h4 {
+
+}
+
+p {
+  padding-bottom: 20px;
+  line-height: 1.5;
+}
+
+a {
+  color: $bg;
+  text-decoration: none;
+  @include transition();
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+header {
+  position: relative;
+  z-index: 100;
+}
+
+@media screen and (min-width: 1025px) {
+  #mainMenu {
+    > ul {
+      font-size: 0;
+      > li {
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        > a {
+          font-size: 14px;
+          display: block;
+        }
+        &:hover > a, &.current-menu-item > a {
+          text-decoration: none;
+        }
+        &:hover > ul {
+          margin-top: 0;
+          opacity: 1;
+          visibility: visible;
+        }
+        ul {
+          margin-top: 20px;
+          opacity: 0;
+          visibility: hidden;
+          width: 270px;
+          position: absolute;
+          left: 0;
+          top: 100%;
+          background: rgba(239, 239, 239, 0.8);
+          font-size: 14px;
+          @include transition();
+          li {
+            position: relative;
+            a {
+              display: block;
+              padding: 7px 18px;
+              color: $bg;
+              font-size: rem(13);
+              text-decoration: none;
+            }
+            &:hover, &.current-menu-item {
+              > a {
+                color: #fff;
+                background: $bg;
+              }
+            }
+            &:hover ul {
+              visibility: visible;
+              opacity: 1;
+              margin-top: 0;
+            }
+            ul {
+              left: 270px;
+              top: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.content {
+  ul {
+    margin: 0 0 20px 15px;
+    li {
+      padding: 5px 0 5px 15px;
+      position: relative;
+      &:before {
+        content: "";
+        background: $bg;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        position: absolute;
+        top: rem(15);
+        left: 0;
+      }
+    }
+  }
+}
+
+input[type="text"], input[type="email"], input[type="tel"], input[type="search"], input[type="password"], textarea {
+  height: $inputH;
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #eee;
+  padding: 0 rem(20);
+  font-family: $f;
+  font-size: rem(14);
+  &:focus {
+
+  }
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+  padding: 12px rem(20);
+}
+
+.button, .submit {
+  display: inline-block;
+  line-height: rem(40);
+  padding: 0 rem(20);
+  font-size: rem(14);
+  background: $bg;
+  color: #fff;
+  font-family: $f;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    background: $bg2;
+    text-decoration: none;
+  }
+}
+
+footer {
+
+}
