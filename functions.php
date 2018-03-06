@@ -10,7 +10,7 @@ function my_acf_init()
 }
 
 add_action('acf/init', 'my_acf_init');
-
+ 
 function style_js()
 {
     if (is_page_template("tpl-contact.php") || is_front_page()) {
