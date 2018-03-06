@@ -8,9 +8,9 @@ function my_acf_init()
 {
     acf_update_setting('google_api_key', 'AIzaSyAOfuigGs3rWzZsdcWmQTeGU82RGccVqfc');
 }
-
+HUI
 add_action('acf/init', 'my_acf_init');
- 
+
 function style_js()
 {
     if (is_page_template("tpl-contact.php") || is_front_page()) {
