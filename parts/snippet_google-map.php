@@ -21,7 +21,7 @@ if (!empty($location)) { ?>
             zoom: 13,
             scrollwheel: mouseScroll
         });
-        var marker = new google.maps.Marker({
+        var marker = new google.maps.Marker({ 
             position: latlng,
             icon: $marker.attr('data-marker'),
             map: map
