@@ -75,11 +75,11 @@ input[type="submit"], input[type="button"], button, .button {
 }
 
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-  color: #707070;
+  color: $c;
 }
 
 input::-moz-placeholder, textarea::-moz-placeholder {
-  color: #707070;
+  color: $c;
   opacity: 1;
 }
 

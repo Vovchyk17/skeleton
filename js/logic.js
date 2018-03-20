@@ -14,7 +14,7 @@ $(document).ready(function () {
             return false;
         });
     }
- 
+
     /*var swiper = new Swiper('.swiper-container', {
         spaceBetween: 30,
         pagination: {
