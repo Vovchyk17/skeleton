@@ -8,19 +8,24 @@ $(document).ready(function () {
 
     if (width <= 1024) {
         $("#mainMenu .menu-item-has-children > a").append("<span></span>");
-        $("#mainMenu .menu-item-has-children span").click(function() {
+        $("#mainMenu .menu-item-has-children span").click(function () {
             $(this).parent().next().slideToggle(300);
             $(this).toggleClass("active");
             return false;
         });
     }
-
+ 
     /*var swiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        paginationClickable: true,
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        spaceBetween: 30
+        spaceBetween: 30,
+        pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: 'true',
+      },
+      navigation: {
+        nextEl: '.custom-next',
+        prevEl: '.custom-prev',
+      },
     });*/
 
     //WPCF7
