@@ -5,4 +5,4 @@
         <p>Sorry, this page does not exist or has been removed.</p>
     </div>
 </section>
-<?php get_footer(); ?>
+<?php get_footer(); ?> 
