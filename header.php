@@ -19,7 +19,7 @@ header('X-UA-Compatible: IE=Edge');
     <header>
         <div class="container">
             <a id="logo" href="<?php echo get_option('home') ?>">
-                <img src="<?php echo theme('images/logo.png'); ?>" alt="logo">
+                <img src="<?php echo theme('img/logo.png'); ?>" alt="logo">
             </a>
             <div id="menuOpen"><p>Menu</p><span></span></div>
             <nav id="mainMenu">
