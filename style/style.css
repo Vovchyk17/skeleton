@@ -197,7 +197,15 @@ div.wpcf7 .wpcf7-response-output {
   padding: 5px 20px;
   text-align: center; }
 div.wpcf7 .ajax-loader {
-  display: none; }
+  height: 0;
+  width: 0; }
+  div.wpcf7 .ajax-loader.is-active {
+    background: url("../img/spinner.gif");
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin: 0 auto;
+    background-size: cover; }
 
 .error404 .content {
   text-align: center; }

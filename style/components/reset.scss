@@ -231,7 +231,16 @@ div.wpcf7 {
     text-align: center;
   }
   .ajax-loader {
-    display: none;
+    height: 0;
+    width: 0;
+    &.is-active {
+      background: url('../img/spinner.gif');
+      width: 30px;
+      height: 30px;
+      display: block;
+      margin: 0 auto;
+      background-size: cover;
+    }
   }
 }
 
@@ -442,3 +451,4 @@ textarea {
     text-decoration: none;
   }
 }
+
