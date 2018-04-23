@@ -121,41 +121,7 @@ header {
   }
 }
 
-input[type="text"], input[type="email"], input[type="tel"], input[type="search"], input[type="password"], textarea {
-  height: $inputH;
-  width: 100%;
-  border: 1px solid #ccc;
-  background: #eee;
-  padding: 0 rem(20);
-  font-family: $f;
-  font-size: rem(14);
-  &:focus {
 
-  }
-}
-
-textarea {
-  resize: none;
-  height: 100px;
-  padding: 12px rem(20);
-}
-
-.button, .submit {
-  display: inline-block;
-  line-height: rem(40);
-  padding: 0 rem(20);
-  font-size: rem(14);
-  background: $bg;
-  color: #fff;
-  font-family: $f;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  &:hover {
-    background: $bg2;
-    text-decoration: none;
-  }
-}
 
 footer {
 
