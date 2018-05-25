@@ -36,6 +36,12 @@ $(document).ready(function () {
         });
     });
 
+
+    if (!$(".woocommerce-checkout")[0]) {
+        $("select").selbel();
+        $("select option:first-of-type").attr('selected','true').attr('disabled','disabled').attr('value','0');
+    }
+
     $(window).bind("resize", function () {
 
     });
