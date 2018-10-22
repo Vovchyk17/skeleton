@@ -467,8 +467,8 @@ body {
 input[type="text"], input[type="email"], input[type="tel"], input[type="search"], input[type="password"], textarea {
   height: 40px;
   width: 100%;
-  border: 1px solid #ccc;
-  background: #eee;
+  border: 1px solid #000;
+  background: #fff;
   padding: 0 1.4285714286rem;
   font-family: "open";
   font-size: 1rem; }
@@ -490,7 +490,7 @@ textarea {
   text-decoration: none;
   cursor: pointer; }
   .button:hover, .submit:hover {
-    background: #308bf1;
+    background: #ffff4c;
     text-decoration: none; }
 
 .last_no_spacing > *:last-child {

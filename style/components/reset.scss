@@ -130,19 +130,6 @@ img {
   width: 0
 }
 
-
-//Using @include declare-font('FontName', 'font-filename');
-@mixin declare-font($font-family, $font-filename, $font-weight: normal, $font-style: normal) {
-  @font-face {
-    font-family: '#{$font-family}';
-    font-weight: $font-weight;
-    font-style: $font-style;
-    src: url('../fonts/#{$font-filename}.eot');
-    src: url('../fonts/#{$font-filename}.eot?#iefix') format('embedded-opentype'), url('../fonts/#{$font-filename}.woff') format('woff'), url('../fonts/#{$font-filename}.ttf') format('truetype'),;
-  }
-}
-
-
 //Fullframe
 .fullframe {
   height: 0;
@@ -432,8 +419,8 @@ body {
 input[type="text"], input[type="email"], input[type="tel"], input[type="search"], input[type="password"], textarea {
   height: $inputH;
   width: 100%;
-  border: 1px solid #ccc;
-  background: #eee;
+  border: 1px solid #000;
+  background: #fff;
   padding: 0 rem(20);
   font-family: $f;
   font-size: rem(14);
@@ -460,7 +447,7 @@ textarea {
   text-decoration: none;
   cursor: pointer;
   &:hover {
-    background: $bg2;
+    background: $hover;
     text-decoration: none;
   }
 }
