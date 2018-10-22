@@ -137,3 +137,22 @@
     -webkit-column-break-inside: avoid;
   }
 }
+
+@mixin gradient($angle: 90deg, $colors...) {
+  background-image: -webkit-linear-gradient(90 - $angle + 360, $colors);
+  background-image: linear-gradient($angle, $colors);
+}
+
+@mixin rwd-max($px) {
+  $max-width: $px#{px};
+  @media screen and (max-width: $max-width) {@content}
+}
+@mixin rwd-min($px) {
+  $min-width: $px#{px};
+  @media screen and (min-width: $min-width) {@content}
+}
+@mixin rwd-range($px, $px2) {
+  $max-width: $px#{px};
+  $min-width: $px2#{px};
+  @media screen and (max-width: $max-width) and (min-width: $min-width) {@content}
+}
