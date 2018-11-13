@@ -15,19 +15,6 @@ $(document).ready(function () {
         });
     }
 
-    /*var swiper = new Swiper('.swiper-container', {
-        spaceBetween: 30,
-        pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
-        clickable: 'true',
-      },
-      navigation: {
-        nextEl: '.custom-next',
-        prevEl: '.custom-prev',
-      },
-    });*/
-
     //WPCF7
     $(this).on('click', '.wpcf7-not-valid-tip', function () {
         $(this).prev().trigger('focus');
@@ -36,15 +23,30 @@ $(document).ready(function () {
         });
     });
 
-
     if (!$(".woocommerce-checkout")[0]) {
         $("select").selbel();
         $("select option:first-of-type").attr('selected','true').attr('disabled','disabled').attr('value','0');
     }
 
-    $(window).bind("resize", function () {
+    //find empty paragraphs
+    /*$('p').each(function() {
+        var t = $(this);
+        if(t.html().replace(/\s|&nbsp;/g, '').length === 0) { t.addClass('jEmpty'); }
+    });*/
 
-    });
+});
 
-
+$(window).on('load', function () {
+    /*var swiper = new Swiper('.swiper-container', {
+       spaceBetween: 30,
+       pagination: {
+       el: '.swiper-pagination',
+       type: 'bullets',
+       clickable: 'true',
+     },
+     navigation: {
+       nextEl: '.custom-next',
+       prevEl: '.custom-prev',
+     },
+   });*/
 });
