@@ -28,6 +28,7 @@ function style_js()
     wp_enqueue_style('style', get_template_directory_uri() . '/style/style.css');
     wp_enqueue_style('fancybox', '//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css');
     wp_enqueue_style('swiper', '//cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css');
+    wp_enqueue_style('fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 }
 add_action('wp_enqueue_scripts', 'style_js');
 
