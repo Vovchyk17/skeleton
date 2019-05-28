@@ -19,7 +19,7 @@
                 </div>
             <?php endwhile; ?>
         <?php else : ?>
-            <h3>Sorry, No Posts Found</h3>
+            <h2>Sorry, No Posts Found</h2>
         <?php endif; ?>
     </div>
 </section>
