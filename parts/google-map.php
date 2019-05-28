@@ -37,4 +37,4 @@ if (!empty($location)) { ?>
         async
         defer></script>
 
-<?php /*get_template_part( 'part/snippet', 'google_map' ); */?>
+<?php /*get_template_part( 'parts/google_map'); */?>
