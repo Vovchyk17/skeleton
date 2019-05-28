@@ -260,6 +260,11 @@ function acf_repeater_even() {
 }
 add_action('admin_footer', 'acf_repeater_even');
 
+add_action('wp_head', 'ajax_url');
+function ajax_url() {
+    echo '<script type="text/javascript">var ajax_url="' . admin_url('admin-ajax.php') . '";</script>';
+}
+
 /*//remove p tag > image
 function filter_ptags_on_images($content){
     return preg_replace('/<p>\\s*?(<a .*?><img.*?><\\/a>|<img.*?>)?\\s*<\\/p>/s', '\1', $content);
