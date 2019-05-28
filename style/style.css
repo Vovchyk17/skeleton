@@ -67,10 +67,10 @@ input[type="submit"], input[type="button"], button, .button {
   border: none; }
 
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-  color: #333333; }
+  color: #000; }
 
 input::-moz-placeholder, textarea::-moz-placeholder {
-  color: #333333;
+  color: #000;
   opacity: 1; }
 
 hr {
@@ -131,7 +131,7 @@ img {
   display: block;
   width: 100%;
   font-size: 14px;
-  font-family: "open";
+  font-family: "Open Sans";
   height: 40px; }
   .selbel_w select {
     width: 100%;
@@ -182,7 +182,7 @@ div.wpcf7 .wpcf7-not-valid-tip {
   left: 0;
   right: 0;
   cursor: pointer;
-  font-family: "open";
+  font-family: "Open Sans";
   height: 40px;
   line-height: 40px;
   padding: 0 10px;
@@ -191,7 +191,7 @@ div.wpcf7 .wpcf7-response-output {
   width: 100%;
   background: #fff;
   margin: 10px 0 0 0;
-  font-family: "open";
+  font-family: "Open Sans";
   font-size: 12px;
   line-height: 20px;
   padding: 5px 20px;
@@ -308,10 +308,10 @@ div.wpcf7 .ajax-loader {
       box-shadow: 0 4px 0 0 #fff; }
 
 html {
-  font: 400 14px/1.5714 "open", sans-serif; }
+  font: 400 14px/1.5714 "Open Sans", sans-serif; }
 
 body {
-  color: #333333;
+  color: #000;
   -webkit-box-direction: normal;
   -webkit-box-orient: vertical;
   -webkit-flex-direction: column;
@@ -469,28 +469,30 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="search"]
   width: 100%;
   border: 1px solid #000;
   background: #fff;
-  padding: 0 1.4285714286rem;
-  font-family: "open";
-  font-size: 1rem; }
+  padding: 0 20px;
+  font-family: "Open Sans";
+  font-size: 14px; }
+  input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, input[type="search"]:focus, input[type="password"]:focus, textarea:focus {
+    border-color: #0C59AF; }
 
 textarea {
   resize: none;
   height: 100px;
-  padding: 12px 1.4285714286rem; }
+  padding: 12px 20px; }
 
 .button, .submit {
   display: inline-block;
-  line-height: 2.8571428571rem;
-  padding: 0 1.4285714286rem;
-  font-size: 1rem;
+  line-height: 40px;
+  padding: 0 20px;
+  font-size: 14px;
   background: #0C59AF;
   color: #fff;
-  font-family: "open";
+  font-family: "Open Sans";
   text-align: center;
   text-decoration: none;
   cursor: pointer; }
   .button:hover, .submit:hover {
-    background: #ffff4c;
+    background: #32f0ff;
     text-decoration: none; }
 
 .last_no_spacing > *:last-child {

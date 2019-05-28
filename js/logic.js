@@ -3,7 +3,7 @@ $(document).ready(function () {
     var width = document.body.clientWidth;
 
     $("#menuOpen").click(function (e) {
-        $(this).toggleClass("opened");
+        $('#menuOpen span').toggleClass("opened");
     });
 
     if (width <= 1024) {

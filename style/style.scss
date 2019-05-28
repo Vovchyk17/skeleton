@@ -1,15 +1,16 @@
 @import 'components/mixins';
 
 $w: 1140px;
-$c: #333333;
+$c: #000;
 $bg: #0C59AF;
-$hover: #ffff4c;
+$hover: #32f0ff;
 $inputH: 40px;
 $font-base: 14px;
-$f: "open";
+$f: "Open Sans";
 $icons: FontAwesome;
 
 @import 'components/flexbox';
 @import 'components/reset';
 @import 'components/code';
+//@import 'components/woo';
 @import 'components/rwd';

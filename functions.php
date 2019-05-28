@@ -22,12 +22,12 @@ function style_js()
     wp_enqueue_script('lib', get_template_directory_uri() . '/js/lib.js', array('jquery'), '1.0', true);
     wp_enqueue_script('logic', get_template_directory_uri() . '/js/logic.js', array('jquery'), '1.0', true);
     wp_enqueue_script('fancybox',  '//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js');
-    wp_enqueue_script('swiper',  '//cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js');
+    wp_enqueue_script('swiper',  '//cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js');
 
     wp_enqueue_style('fonts', get_template_directory_uri() . '/style/fonts.css');
     wp_enqueue_style('style', get_template_directory_uri() . '/style/style.css');
     wp_enqueue_style('fancybox', '//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css');
-    wp_enqueue_style('swiper', '//cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css');
+    wp_enqueue_style('swiper', '//cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css');
     wp_enqueue_style('fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 }
 add_action('wp_enqueue_scripts', 'style_js');
@@ -77,7 +77,7 @@ if(function_exists('acf_add_options_page') ) {
         'capability'    => 'edit_posts',
         'redirect'      => false
     ));
-	acf_add_options_sub_page(array(
+/*	acf_add_options_sub_page(array(
 		'page_title'    => 'Theme Header Settings',
 		'menu_title'    => 'Header',
 		'parent_slug'   => 'theme-general-settings',
@@ -86,7 +86,7 @@ if(function_exists('acf_add_options_page') ) {
 		'page_title'    => 'Theme Footer Settings',
 		'menu_title'    => 'Footer',
 		'parent_slug'   => 'theme-general-settings',
-	));
+	));*/
 }
 
 add_theme_support( 'post-thumbnails' );
@@ -140,10 +140,9 @@ define ('BLOG_ID', get_option('page_for_posts'));
 define ('POSTS_PER_PAGE', get_option('posts_per_page'));
 /* END: Theme config section*/
 
-//New Body Classes
+//Body class
 function new_body_classes( $classes ){
     if( is_page() ){
-        global $post;
         $temp = get_page_template();
         if ( $temp != null ) {
             $path = pathinfo($temp);
@@ -151,76 +150,15 @@ function new_body_classes( $classes ){
             $tn= str_replace(".php", "", $tmp);
             $classes[] = $tn;
         }
+        global $post;
+        $classes[] = 'page-'.get_post($post)->post_name;
         if (is_active_sidebar('sidebar')) {
             $classes[] = 'with_sidebar';
         }
-        foreach($classes as $k => $v) {
-            if(
-                $v == 'page-template' ||
-                $v == 'page-id-'.$post->ID ||
-                $v == 'page-template-default' ||
-                $v == 'woocommerce-page' ||
-                ($temp != null?($v == 'page-template-'.$tn.'-php' || $v == 'page-template-'.$tn):'')) unset($classes[$k]);
-        }
     }
-    if( is_single() ){
-        global $post;
-        $f = get_post_format( $post->ID );
-        foreach($classes as $k => $v) {
-            if($v == 'postid-'.$post->ID || $v == 'single-format-'.(!$f?'standard':$f)) unset($classes[$k]);
-        }
-    }
+    if(is_page() && !is_front_page() || is_single()) {$classes[] = 'static-page';}
     global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
-    $browser = $_SERVER[ 'HTTP_USER_AGENT' ];
-    // Mac, PC ...or Linux
-    if ( preg_match( "/Mac/", $browser ) ){
-        $classes[] = 'macos';
-    } elseif ( preg_match( "/Windows/", $browser ) ){
-        $classes[] = 'windows';
-    } elseif ( preg_match( "/Linux/", $browser ) ) {
-        $classes[] = 'linux';
-    } else {
-        $classes[] = 'unknown-os';
-    }
-    // Checks browsers in this order: Chrome, Safari, Opera, MSIE, FF
-    if ( preg_match( "/Chrome/", $browser ) ) {
-        $classes[] = 'chrome';
-        preg_match( "/Chrome\/(\d.\d)/si", $browser, $matches);
-        @$classesh_version = 'ch' . str_replace( '.', '-', $matches[1] );
-        $classes[] = $classesh_version;
-    } elseif ( preg_match( "/Safari/", $browser ) ) {
-        $classes[] = 'safari';
-        preg_match( "/Version\/(\d.\d)/si", $browser, $matches);
-        $sf_version = 'sf' . str_replace( '.', '-', $matches[1] );
-        $classes[] = $sf_version;
-    } elseif ( preg_match( "/Opera/", $browser ) ) {
-        $classes[] = 'opera';
-        preg_match( "/Opera\/(\d.\d)/si", $browser, $matches);
-        $op_version = 'op' . str_replace( '.', '-', $matches[1] );
-        $classes[] = $op_version;
-    } elseif ( preg_match( "/MSIE/", $browser ) ) {
-        $classes[] = 'msie';
-        if( preg_match( "/MSIE 6.0/", $browser ) ) {
-            $classes[] = 'ie6';
-        } elseif ( preg_match( "/MSIE 7.0/", $browser ) ){
-            $classes[] = 'ie7';
-        } elseif ( preg_match( "/MSIE 8.0/", $browser ) ){
-            $classes[] = 'ie8';
-        } elseif ( preg_match( "/MSIE 9.0/", $browser ) ){
-            $classes[] = 'ie9';
-        }
-    } elseif ( preg_match( "/Firefox/", $browser ) && preg_match( "/Gecko/", $browser ) ) {
-        $classes[] = 'firefox';
-        preg_match( "/Firefox\/(\d)/si", $browser, $matches);
-        $ff_version = 'ff' . str_replace( '.', '-', $matches[1] );
-        $classes[] = $ff_version;
-    } else {
-        $classes[] = 'unknown-browser';
-    }
-    //qtranslate classes
-    if(defined('QTX_VERSION')) {
-        $classes[] = 'qtrans-' . qtranxf_getLanguage();
-    }
+    if($is_lynx) $classes[] = 'lynx';elseif($is_gecko) $classes[] = 'gecko';elseif($is_opera) $classes[] = 'opera';elseif($is_NS4) $classes[] = 'ns4';elseif($is_safari) $classes[] = 'safari';elseif($is_chrome) $classes[] = 'chrome';elseif($is_IE) $classes[] = 'ie';else $classes[] = 'unknown';if($is_iphone) $classes[] = 'iphone';
     return $classes;
 }
 add_filter( 'body_class', 'new_body_classes' );
@@ -321,3 +259,18 @@ function acf_repeater_even() {
     echo '<style>.acf-repeater > table > tbody > tr:nth-child(even) > td.order {color: #fff !important;background-color: '.$color.' !important; text-shadow: none}.acf-fc-layout-handle {color: #fff !important;background-color: #23282d!important; text-shadow: none}</style>';
 }
 add_action('admin_footer', 'acf_repeater_even');
+
+/*//remove p tag > image
+function filter_ptags_on_images($content){
+    return preg_replace('/<p>\\s*?(<a .*?><img.*?><\\/a>|<img.*?>)?\\s*<\\/p>/s', '\1', $content);
+}
+add_filter('the_content', 'filter_ptags_on_images');*/
+
+/*add_theme_support("woocommerce");
+add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+// Remove the sorting dropdown from Woocommerce
+remove_action( 'woocommerce_before_shop_loop' , 'woocommerce_catalog_ordering', 30 );
+// Remove the result count from WooCommerce
+remove_action( 'woocommerce_before_shop_loop' , 'woocommerce_result_count', 20 );
+add_theme_support( 'wc-product-gallery-lightbox' );
+add_theme_support( 'wc-product-gallery-slider' );*/
