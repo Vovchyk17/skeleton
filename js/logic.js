@@ -2,8 +2,9 @@ $ = jQuery;
 $(document).ready(function () {
     var width = document.body.clientWidth;
 
-    $("#menuOpen").click(function (e) {
-        $('#menuOpen span').toggleClass("opened");
+    $('#navToggle').click(function () {
+        $(this).toggleClass('open');
+        $('#mainMenu').toggleClass('open');
     });
 
     if (width <= 1024) {
@@ -24,9 +25,15 @@ $(document).ready(function () {
     });
 
     if (!$(".woocommerce-checkout")[0]) {
-        $("select").selbel();
-        $("select option:first-of-type").attr('selected','true').attr('disabled','disabled').attr('value','0');
+        $('select').selectric({
+            disableOnMobile: false,
+            nativeOnMobile: false,
+        });
     }
+
+    $('select.wpcf7-form-control').each(function () {
+        $(this).find('option').first().val('');
+    });
 
     //find empty paragraphs
     /*$('p').each(function() {

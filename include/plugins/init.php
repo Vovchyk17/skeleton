@@ -201,11 +201,6 @@ function my_theme_register_required_plugins()
             'required' => false,
         ),
         array(
-            'name' => 'Add Logo to Admin',
-            'slug' => 'add-logo-to-admin',
-            'required' => false,
-        ),
-        array(
             'name' => 'AJAX Thumbnail Rebuild',
             'slug' => 'ajax-thumbnail-rebuild',
             'required' => false,

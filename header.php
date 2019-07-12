@@ -17,11 +17,20 @@ header('X-UA-Compatible: IE=Edge');
 <body <?php body_class(); ?>>
 <div id="main">
     <header>
-        <div class="container">
-            <a id="logo" href="<?php echo get_option('home') ?>">
+        <div class="mobile_header alc">
+            <a class="logo" href="<?php echo get_option('home') ?>">
                 <img src="<?php echo theme('img/logo.png'); ?>" alt="logo">
             </a>
-            <div id="menuOpen"><p>Menu</p><span></span></div>
+            <div id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="container">
+            <a class="logo" href="<?php echo get_option('home') ?>">
+                <img src="<?php echo theme('img/logo.png'); ?>" alt="logo">
+            </a>
             <nav id="mainMenu">
                 <?php wp_nav_menu(array('container' => false, 'items_wrap' => '<ul id="%1$s">%3$s</ul>', 'theme_location'  => 'main_menu')); ?>
             </nav>

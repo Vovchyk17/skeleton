@@ -74,15 +74,6 @@ input[type="submit"], input[type="button"], button, .button {
   border: none;
 }
 
-input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-  color: $c;
-}
-
-input::-moz-placeholder, textarea::-moz-placeholder {
-  color: $c;
-  opacity: 1;
-}
-
 hr {
   clear: both;
   overflow: hidden;
@@ -148,194 +139,28 @@ img {
   }
 }
 
-//SELECT
-.selbel_w {
-  position: relative;
-  display: block;
-  width: 100%;
-  font-size: 14px;
-  font-family: $f;
-  height: $inputH;
-  select {
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    position: relative;
-    display: block;
-    z-index: 1;
-    opacity: 0;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    + span {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: #fff;
-      color: #555;
-      padding: 0 10px;
-      border-radius: 5px;
-      border: 1px solid #eee;
-      line-height: $inputH;
-      &:after {
-        content: '';
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 9px 5px 0 5px;
-        border-color: #555 transparent transparent transparent;
-        position: absolute;
-        right: 13px;
-        top: 16px;
-      }
-      &.err {
-        border-color: #ef4036
-      }
-    }
-    option {
-      padding: 5px
-    }
+// custom scrollbar
+html::-webkit-scrollbar {
+  width: 6px;
+  @include rwd-min(1025) {
+    width: 10px
   }
 }
 
-//CONTACT FORM
-div.wpcf7 {
-  .wpcf7-form-control-wrap {
-    display: block !important;
-    margin-bottom: 20px;
-    clear: both;
-  }
-  .wpcf7-not-valid-tip {
-    background: #fff;
-    border: 1px solid #FF0000;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    cursor: pointer;
-    font-family: $f;
-    height: $inputH;
-    line-height: $inputH;
-    padding: 0 10px;
-    text-align: left;
-  }
-  .wpcf7-response-output {
-    width: 100%;
-    background: #fff;
-    margin: 10px 0 0 0;
-    font-family: $f;
-    font-size: 12px;
-    line-height: 20px;
-    padding: 5px 20px;
-    text-align: center;
-  }
-  .ajax-loader {
-    height: 0;
-    width: 0;
-    &.is-active {
-      background: url('../img/spinner.gif');
-      width: 30px;
-      height: 30px;
-      display: block;
-      margin: 0 auto;
-      background-size: cover;
-    }
-  }
+::-webkit-scrollbar-thumb {
+  background: $bg
 }
 
-//PAGE 404
-.error404 {
-  .content {
-    text-align: center;
-    h1 {
-      font-size: rem(55);
-      line-height: 1.2;
-      padding-bottom: 40px;
-      font-weight: 400;
-      span {
-        font-size: rem(80);
-        line-height: 1.2;
-        color: $bg;
-        font-weight: 700;
-      }
-    }
-    p {
-      font-size: rem(18);
-    }
-  }
+::-webkit-scrollbar-track {
+  background: #eaeaea
 }
 
-//MENU BUTTON
-$line: 4px;
-// The thickness of the button lines, also need to improve -> &:after {top: ?px} !
-$line-position: 18px;
-// The spacing between lines, also need to improve -> &:after {top: ?px} !
-$button-color: #fff;
-// The color of button
-#menuOpen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: #222;
-  height: 50px;
-  display: none;
-  &.opened {
-    span {
-      &:before, &:after {
-        top: 0;
-        left: 0;
-        right: 0;
-        background: $button-color;
-        @include box-shadow(none);
-      }
-      &:before {
-        @include backface-visibility();
-        @include transform(rotate(-45deg) translate(-7px, 7px));
-      }
-      &:after {
-        @include backface-visibility();
-        @include transform(rotate(45deg) translate(7px, 7px));
-      }
-    }
-  }
-  p {
-    margin-left: 3%;
-    color: #fff;
-    font-size: 24px;
-    text-transform: uppercase;
-    line-height: 50px;
-    padding-bottom: 0;
-  }
-  span {
-    @include center(false, true);
-    right: 3%;
-    width: 27px;
-    height: 27px;
-    cursor: pointer;
-    z-index: 300;
-    @include transition();
-    &:before, &:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: $line;
-      box-shadow: 0 $line 0 0 $button-color, 0 $line-position 0 0 $button-color;
-      -webkit-box-shadow: 0 $line 0 0 $button-color, 0 $line-position 0 0 $button-color;
-      -moz-box-shadow: 0 $line 0 0 $button-color, 0 $line-position 0 0 $button-color;
-      @include transition();
-    }
-    &:after {
-      content: "";
-      position: absolute;
-      top: 7px; // Need to improve if both $line-thickness and $line-position changed !
-      height: $line;
-      @include box-shadow(0 $line 0 0 $button-color);
-    }
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: darken($bg, 5%)
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: darken($bg, 5%)
 }
 
 html {
@@ -355,67 +180,6 @@ body {
   width: 100%;
 }
 
-.container {
-  margin: 0 auto;
-  width: $w;
-  max-width: 94%;
-  position: relative;
-}
-
-.flex {
-  @include flexbox;
-  @include justify-content(space-between);
-}
-
-.start {
-  @include flexbox;
-  @include justify-content(flex-start);
-}
-
-.end {
-  @include flexbox;
-  @include justify-content(flex-end);
-}
-
-.around {
-  @include flexbox;
-  @include justify-content(space-around);
-}
-
-.alc {
-  @include flexbox;
-  @include justify-content(space-between);
-  @include align-items(center);
-}
-
-.alstart {
-  @include flexbox;
-  @include justify-content(space-between);
-  @include align-items(flex-start);
-}
-
-.alend {
-  @include flexbox;
-  @include justify-content(space-between);
-  @include align-items(flex-end);
-}
-
-.center {
-  @include flexbox();
-  @include align-items(center);
-  @include justify-content(center);
-}
-
-.cover {
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-}
-
-.tac {
-  text-align: center;
-}
-
 input[type="text"], input[type="email"], input[type="tel"], input[type="search"], input[type="password"], textarea {
   height: $inputH;
   width: 100%;
@@ -426,6 +190,10 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="search"]
   font-size: 14px;
   &:focus {
     border-color: $bg;
+  }
+  @include placeholder() {
+    color: $c;
+    opacity: 1;
   }
 }
 
@@ -451,9 +219,3 @@ textarea {
     text-decoration: none;
   }
 }
-
-.last_no_spacing > *:last-child {
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
