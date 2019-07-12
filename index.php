@@ -9,6 +9,10 @@
                         <a class="thumb" href="<?php the_permalink(); ?>">
                             <?php the_post_thumbnail(); ?>
                         </a>
+                    <?php } else {?>
+                        <a class="thumb" href="<?php the_permalink(); ?>">
+                            <img src="<?php echo theme() ?>/img/holder.png" alt="holder">
+                        </a>
                     <?php } ?>
                     <div class="info">
                         <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
