@@ -178,6 +178,17 @@
   }
 }
 
+//Using @include declare-font('FontName', 'font-filename', 400, font-style);
+@mixin declare-font($font-family, $font-filename, $font-weight: normal, $font-style: normal) {
+  @font-face {
+    font-family: '#{$font-family}';
+    font-weight: $font-weight;
+    font-style: $font-style;
+    src: url('../font/#{$font-filename}.eot');
+    src: url('../font/#{$font-filename}.eot?#iefix') format('embedded-opentype'), url('../font/#{$font-filename}.woff') format('woff'), url('../font/#{$font-filename}.ttf') format('truetype'),;
+  }
+}
+
 @mixin headings {
   h1, h2, h3, h4, h5, h6 {
     @content;
