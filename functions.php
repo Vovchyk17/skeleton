@@ -25,7 +25,6 @@ function style_js()
     wp_enqueue_style('fonts', get_template_directory_uri() . '/style/fonts.css');
     wp_enqueue_style('libs', get_template_directory_uri() . '/style/libs.css');
     wp_enqueue_style('style', get_template_directory_uri() . '/style/style.css');
-    wp_enqueue_style('fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 }
 add_action('wp_enqueue_scripts', 'style_js');
 
