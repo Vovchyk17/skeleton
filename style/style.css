@@ -242,7 +242,7 @@ textarea {
       position: absolute;
       top: 1.0714285714rem;
       left: 0; }
-.content a {
+.content p > a {
   color: #0C59AF; }
 
 .flex {
@@ -449,7 +449,7 @@ div.wpcf7 .ajax-loader {
             top: 0; } }
 @media screen and (max-width: 1024px) {
   #mainMenu {
-    position: absolute;
+    position: fixed;
     top: 50px;
     width: 100%;
     -webkit-transform: translateX(100%);
@@ -490,7 +490,7 @@ div.wpcf7 .ajax-loader {
       #mainMenu ul li:hover > a {
         background: none;
         color: #fff; }
-      #mainMenu ul li.current-menu-item > a {
+      #mainMenu ul li.current-menu-item > a, #mainMenu ul li.current_page_item > a {
         background: #0C59AF;
         color: #fff; }
       #mainMenu ul li.menu-item-has-children > a:after {
@@ -587,10 +587,10 @@ div.wpcf7 .ajax-loader {
     max-width: 120px; }
 
 #navToggle {
-  width: 60px;
-  height: 45px;
+  width: 40px;
+  height: 30px;
   position: relative;
-  margin: 10px auto;
+  margin: 10px;
   -webkit-transform: 0deg;
   -moz-transform: 0deg;
   -ms-transform: 0deg;
@@ -605,7 +605,7 @@ div.wpcf7 .ajax-loader {
   #navToggle span {
     display: block;
     position: absolute;
-    height: 9px;
+    height: 5px;
     width: 100%;
     background: #0C59AF;
     border-radius: 9px;
@@ -628,20 +628,20 @@ div.wpcf7 .ajax-loader {
       -ms-transform-origin: left center;
       transform-origin: left center; }
     #navToggle span:nth-child(2) {
-      top: 18px;
+      top: 12px;
       -webkit-transform-origin: left center;
       -moz-transform-origin: left center;
       -ms-transform-origin: left center;
       transform-origin: left center; }
     #navToggle span:nth-child(3) {
-      top: 36px;
+      top: 24px;
       -webkit-transform-origin: left center;
       -moz-transform-origin: left center;
       -ms-transform-origin: left center;
       transform-origin: left center; }
   #navToggle.open span:nth-child(1) {
-    top: -3px;
-    left: 8px;
+    top: -2px;
+    left: 5px;
     -webkit-transform: rotate(45deg);
     -moz-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
@@ -656,8 +656,8 @@ div.wpcf7 .ajax-loader {
     -ms-transform: rotate(-45deg);
     -o-transform: rotate(-45deg);
     transform: rotate(-45deg);
-    top: 39px;
-    left: 8px; }
+    top: 27px;
+    left: 5px; }
 
 .cover {
   background-size: cover;
@@ -679,6 +679,12 @@ h1, h2, h3, h4, h5, h6 {
 header {
   position: relative;
   z-index: 100; }
+  @media screen and (max-width: 1024px) {
+    header.fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0; } }
 
 @media screen and (max-width: 1024px) {
   html {

@@ -4,6 +4,7 @@ $(document).ready(function () {
 
     $('#navToggle').click(function () {
         $(this).toggleClass('open');
+        $('header').toggleClass('fixed');
         $('#mainMenu').toggleClass('open');
     });
 

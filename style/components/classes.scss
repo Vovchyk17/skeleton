@@ -24,7 +24,7 @@
       }
     }
   }
-  a {
+  p > a {
     color: $bg;
   }
 }
@@ -197,7 +197,7 @@ div.wpcf7 {
   }
   //mobile
   @include rwd-max(1024) {
-    position: absolute;
+    position: fixed;
     top: 50px;
     width: 100%;
     @include transform(translateX(100%));
@@ -235,7 +235,7 @@ div.wpcf7 {
           color: #fff;
         }
 
-        &.current-menu-item > a {
+        &.current-menu-item > a, &.current_page_item > a {
           background: $bg;
           color: #fff;
         }
@@ -350,10 +350,10 @@ div.wpcf7 {
 }
 
 #navToggle {
-  width: 60px;
-  height: 45px;
+  width: 40px;
+  height: 30px;
   position: relative;
-  margin: 10px auto;
+  margin: 10px;
   @include transform(0deg);
   @include transition(.5s ease-in-out);
   cursor: pointer;
@@ -361,7 +361,7 @@ div.wpcf7 {
   span {
     display: block;
     position: absolute;
-    height: 9px;
+    height: 5px;
     width: 100%;
     background: $bg;
     border-radius: 9px;
@@ -376,12 +376,12 @@ div.wpcf7 {
     }
 
     &:nth-child(2) {
-      top: 18px;
+      top: 12px;
       @include transform-origin(left center);
     }
 
     &:nth-child(3) {
-      top: 36px;
+      top: 24px;
       @include transform-origin(left center);
     }
   }
@@ -389,8 +389,8 @@ div.wpcf7 {
   &.open {
     span {
       &:nth-child(1) {
-        top: -3px;
-        left: 8px;
+        top: -2px;
+        left: 5px;
         @include transform(rotate(45deg));
       }
 
@@ -401,8 +401,8 @@ div.wpcf7 {
 
       &:nth-child(3) {
         @include transform(rotate(-45deg));
-        top: 39px;
-        left: 8px;
+        top: 27px;
+        left: 5px;
       }
     }
   }
