@@ -15,17 +15,18 @@
                         </a>
                     <?php } ?>
                     <div class="info">
+                        <time datetime="<?php echo get_the_date('Y-m-d'); ?>"><?php echo get_the_date('F j, Y'); ?></time>
+                        <div class="author_name">Author:
+                            <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author(); ?></a>
+                        </div>
                         <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                        <time datetime="<?php echo get_the_date('Y-m-d'); ?>"><?php echo get_the_date(get_option('date_format_custom')); ?></time>
                         <p><?php echo wp_trim_words(get_the_content(), 40); ?></p>
                         <a class="more" href="<?php the_permalink(); ?>">Read more ></a>
                     </div>
                 </div>
             <?php endwhile; endif; ?>
         </article>
-        <aside>
-            <?php dynamic_sidebar("Blog Sidebar") ?>
-        </aside>
+        <?php echo ( is_active_sidebar( 'blog_sidebar' ) ) ? '<aside>'. dynamic_sidebar('blog_sidebar') .'</aside>' : ''; ?>
     </div>
 </section>
 <?php get_footer(); ?>
