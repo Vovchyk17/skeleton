@@ -35,6 +35,21 @@
   @include justify-content(space-between);
 }
 
+.flex__rwd {
+  @include rwd-min(1025) {
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(space-between);
+  }
+}
+.flex__mob {
+  @include rwd-min(768) {
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(space-between);
+  }
+}
+
 .flex_start {
   @include flexbox;
   @include justify-content(flex-start);
@@ -51,9 +66,23 @@
 }
 
 .flex_center {
-  @include flexbox();
+  @include flexbox;
   @include align-items(center);
   @include justify-content(center);
+}
+.flex_center__rwd {
+  @include rwd-min(1025) {
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(center);
+  }
+}
+.flex_center__mob {
+  @include rwd-min(768) {
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(center);
+  }
 }
 
 .alc {
@@ -424,3 +453,27 @@ div.wpcf7 {
   padding-bottom: 0;
 }
 
+.rwd_show {
+  @include rwd-min(1025) {display: none !important}
+}
+.rwd_hide {
+  @include rwd-max(1024) {display: none !important}
+}
+
+.mob_show {
+  @include rwd-min(768) {display: none !important}
+}
+.mob_hide {
+  @include rwd-max(767) {display: none !important}
+}
+
+.shrs {
+  a {
+    color: $c;
+    @include hover {color: #fff}
+    &.i_fcbk:after {background: #4267b2}
+    &.i_twttr:after {background: #1da1f2}
+    &.i_lnkdn:after {background: #0177b5}
+    &.i_pntrst:after {background: #d50c22}
+  }
+}

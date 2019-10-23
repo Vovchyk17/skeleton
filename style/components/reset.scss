@@ -228,8 +228,13 @@ textarea {
   text-align: center;
   text-decoration: none;
   cursor: pointer;
+  min-width: 220px;
   &:hover {
     text-decoration: none;
   }
 }
 
+/*Add fonts*/
+@include declare-font('fontawesome-regular', 'fa-regular-400');
+@include declare-font('fontawesome-brands', 'fa-brands-400');
+@include declare-font('fontawesome-solid', 'fa-solid-900');

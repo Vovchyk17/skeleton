@@ -218,10 +218,30 @@ textarea {
   font-family: "Open Sans";
   text-align: center;
   text-decoration: none;
-  cursor: pointer; }
+  cursor: pointer;
+  min-width: 220px; }
   .button:hover, .submit:hover {
     text-decoration: none; }
 
+/*Add fonts*/
+@font-face {
+  font-family: "fontawesome-regular";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/fa-regular-400.eot");
+  src: url("../fonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("../fonts/fa-regular-400.woff") format("woff"), url("../fonts/fa-regular-400.ttf") format("truetype"); }
+@font-face {
+  font-family: "fontawesome-brands";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/fa-brands-400.eot");
+  src: url("../fonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("../fonts/fa-brands-400.woff") format("woff"), url("../fonts/fa-brands-400.ttf") format("truetype"); }
+@font-face {
+  font-family: "fontawesome-solid";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/fa-solid-900.eot");
+  src: url("../fonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../fonts/fa-solid-900.woff") format("woff"), url("../fonts/fa-solid-900.ttf") format("truetype"); }
 .container {
   margin: 0 auto;
   width: 1140px;
@@ -256,6 +276,42 @@ textarea {
   -webkit-justify-content: space-between;
   -moz-justify-content: space-between;
   justify-content: space-between; }
+
+@media screen and (min-width: 1025px) {
+  .flex__rwd {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    justify-content: space-between; } }
+
+@media screen and (min-width: 768px) {
+  .flex__mob {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    justify-content: space-between; } }
 
 .flex_start {
   display: -webkit-box;
@@ -308,6 +364,42 @@ textarea {
   -webkit-justify-content: center;
   -moz-justify-content: center;
   justify-content: center; }
+
+@media screen and (min-width: 1025px) {
+  .flex_center__rwd {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center; } }
+
+@media screen and (min-width: 768px) {
+  .flex_center__mob {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center; } }
 
 .alc {
   display: -webkit-box;
@@ -670,6 +762,38 @@ div.wpcf7 .ajax-loader {
 .last_no_spacing > *:last-child {
   margin-bottom: 0;
   padding-bottom: 0; }
+
+@media screen and (min-width: 1025px) {
+  .rwd_show {
+    display: none !important; } }
+
+@media screen and (max-width: 1024px) {
+  .rwd_hide {
+    display: none !important; } }
+
+@media screen and (min-width: 768px) {
+  .mob_show {
+    display: none !important; } }
+
+@media screen and (max-width: 767px) {
+  .mob_hide {
+    display: none !important; } }
+
+.shrs a {
+  color: #000; }
+  .shrs a:active {
+    color: #fff; }
+  @media screen and (min-width: 1025px) {
+    .shrs a:hover {
+      color: #fff; } }
+  .shrs a.i_fcbk:after {
+    background: #4267b2; }
+  .shrs a.i_twttr:after {
+    background: #1da1f2; }
+  .shrs a.i_lnkdn:after {
+    background: #0177b5; }
+  .shrs a.i_pntrst:after {
+    background: #d50c22; }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
