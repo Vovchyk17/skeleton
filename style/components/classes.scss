@@ -121,9 +121,9 @@ div.wpcf7 {
     right: 0;
     cursor: pointer;
     font-family: $f;
-    height: $inputH;
-    line-height: $inputH;
-    padding: 0 10px;
+    height: 100%;
+    line-height: 1.2;
+    padding: 10px;
     text-align: left;
   }
 
@@ -163,10 +163,11 @@ div.wpcf7 {
         display: inline-block;
         vertical-align: top;
         position: relative;
-
+        padding: 0 20px;
         > a {
           font-size: 14px;
           display: block;
+          color: $c;
         }
 
         &:hover > a, &.current-menu-item > a {

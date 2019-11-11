@@ -261,6 +261,32 @@ function ajax_url() {
     echo '<script type="text/javascript">var ajax_url="' . admin_url('admin-ajax.php') . '";</script>';
 }
 
+function wpa_fontbase64($fonthash) {
+    $font = get_stylesheet_directory() . '/style/fonts.css';
+    $md5 = filemtime( $font );
+    $md5_cached = get_transient('fonts64_md5');
+    if( $md5_cached !== $md5 ) {
+        set_transient( 'fonts64_md5', $md5, 168 * 3600 );
+    }
+    if($fonthash) {
+        echo $md5_cached?$md5_cached:$md5;
+    } else {
+        $minfont = file_get_contents( $font );
+        $minfont = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $minfont);
+        $minfont = str_replace(array(': ',' : '), ':', $minfont);
+        $minfont = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $minfont);
+        $minfont = str_replace(';}','}', $minfont);
+        $fontpack = array(
+            'md5'      => $md5_cached,
+            'value'    => $minfont
+        );
+        echo json_encode($fontpack);
+        exit;
+    }
+}
+add_action('wp_ajax_wpa_fontbase64', 'wpa_fontbase64');
+add_action('wp_ajax_nopriv_wpa_fontbase64', 'wpa_fontbase64');
+
 /*//remove p tag > image
 function filter_ptags_on_images($content){
     return preg_replace('/<p>\\s*?(<a .*?><img.*?><\\/a>|<img.*?>)?\\s*<\\/p>/s', '\1', $content);

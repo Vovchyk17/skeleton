@@ -466,9 +466,9 @@ div.wpcf7 .wpcf7-not-valid-tip {
   right: 0;
   cursor: pointer;
   font-family: "Open Sans";
-  height: 40px;
-  line-height: 40px;
-  padding: 0 10px;
+  height: 100%;
+  line-height: 1.2;
+  padding: 10px;
   text-align: left; }
 div.wpcf7 .wpcf7-response-output {
   width: 100%;
@@ -496,10 +496,12 @@ div.wpcf7 .ajax-loader {
     #mainMenu > ul > li {
       display: inline-block;
       vertical-align: top;
-      position: relative; }
+      position: relative;
+      padding: 0 20px; }
       #mainMenu > ul > li > a {
         font-size: 14px;
-        display: block; }
+        display: block;
+        color: #000; }
       #mainMenu > ul > li:hover > a, #mainMenu > ul > li.current-menu-item > a {
         text-decoration: none; }
       #mainMenu > ul > li:hover > ul {

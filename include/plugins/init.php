@@ -196,21 +196,6 @@ function my_theme_register_required_plugins()
             'required' => false,
         ),
         array(
-            'name' => 'Change Case',
-            'slug' => 'change-case-for-tinymce',
-            'required' => false,
-        ),
-        array(
-            'name' => 'AJAX Thumbnail Rebuild',
-            'slug' => 'ajax-thumbnail-rebuild',
-            'required' => false,
-        ),
-        array(
-            'name' => 'Post Thumbnail Editor',
-            'slug' => 'post-thumbnail-editor',
-            'required' => false,
-        ),
-        array(
             'name' => 'Advanced Custom Fields: PRO',
             'slug' => 'advanced-custom-fields-pro',
             'source' => get_stylesheet_directory() . '/include/plugins/advanced-custom-fields-pro.zip',
