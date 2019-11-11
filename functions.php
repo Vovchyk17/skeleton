@@ -287,6 +287,17 @@ function wpa_fontbase64($fonthash) {
 add_action('wp_ajax_wpa_fontbase64', 'wpa_fontbase64');
 add_action('wp_ajax_nopriv_wpa_fontbase64', 'wpa_fontbase64');
 
+function cats($pid){
+    $post_categories = wp_get_post_categories($pid);
+    $cats = '';
+    $co = count($post_categories); $i = 1;
+    foreach($post_categories as $c){
+        $cat = get_category($c);
+        $cats .= '<a href="'.get_category_link($cat->term_id).'">'.$cat->name.'</a>' .($i++ != $co?'<span>,</span> ':'');
+    }
+    return $cats;
+}
+
 /*//remove p tag > image
 function filter_ptags_on_images($content){
     return preg_replace('/<p>\\s*?(<a .*?><img.*?><\\/a>|<img.*?>)?\\s*<\\/p>/s', '\1', $content);

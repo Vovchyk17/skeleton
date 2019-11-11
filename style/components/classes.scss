@@ -470,11 +470,15 @@ div.wpcf7 {
 
 .shrs {
   a {
-    color: $c;
-    @include hover {color: #fff}
-    &.i_fcbk:after {background: #4267b2}
-    &.i_twttr:after {background: #1da1f2}
-    &.i_lnkdn:after {background: #0177b5}
-    &.i_pntrst:after {background: #d50c22}
+    display: inline-block;
+    font-size: 18px;
+    margin-right: 10px;
+    @include hover {
+      text-decoration: none;
+    }
+    &.i_fcbk {color: #4267b2}
+    &.i_twttr {color: #1da1f2}
+    &.i_lnkdn {color: #0177b5}
+    &.i_pntrst {color: #d50c22}
   }
 }
