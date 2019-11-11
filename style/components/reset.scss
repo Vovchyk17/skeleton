@@ -102,6 +102,13 @@ article, aside, details, figcaption, figure, footer, header, nav, section, summa
   margin: 0 0 20px;
 }
 
+.alignleft, .aligncenter, .alignright {
+ @include rwd-max(1024) {
+   float: none;
+   margin: 0 auto 20px;
+ }
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -165,6 +172,9 @@ html::-webkit-scrollbar {
 
 html {
   font: 400 #{$font-base}/1.5714 $f, sans-serif;
+  @include rwd-max(1024) {
+    font-size: 14px;
+  }
 }
 
 body {
