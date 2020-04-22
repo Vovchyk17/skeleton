@@ -4,7 +4,6 @@ $(document).ready(function () {
 
     $('#navToggle').click(function () {
         $(this).toggleClass('open');
-        $('header').toggleClass('fixed');
         $('#mainMenu').toggleClass('open');
     });
 
@@ -24,6 +23,9 @@ $(document).ready(function () {
             $(this).remove();
         });
     });
+    $('select.wpcf7-form-control').each(function () {
+        $(this).find('option').first().val('');
+    });
 
     if (!$(".woocommerce-checkout")[0]) {
         $('select').selectric({
@@ -32,15 +34,29 @@ $(document).ready(function () {
         });
     }
 
-    $('select.wpcf7-form-control').each(function () {
-        $(this).find('option').first().val('');
-    });
+    // $('[data-fancybox]').fancybox();
+
+    // scroll to
+    // $('html, body').animate({
+    //     scrollTop: $(elem).offset().top - $('header').outerHeight()
+    // }, 700);
+
 
     //find empty paragraphs
     /*$('p').each(function() {
         var t = $(this);
         if(t.html().replace(/\s|&nbsp;/g, '').length === 0) { t.addClass('jEmpty'); }
     });*/
+
+    // animations
+    // AOS.init({
+    // disable: true,
+    // disable: 'mobile',
+    // once: true,
+    // offset: 150,
+    // duration: 600,
+    // easing: 'ease-in-out'
+    // });
 
 });
 
@@ -57,4 +73,17 @@ $(window).on('load', function () {
        prevEl: '.custom-prev',
      },
    });*/
+
+    // fluid video (iframe)
+    $('.content iframe').each(function(i) {
+        var t = $(this),
+            p = t.parent();
+        if (p.is('p') && !p.hasClass('full_frame')) {
+            p.addClass('full_frame');
+        }
+    });
+    $('.wp-video').each(function() {
+        $('.mejs-video .mejs-inner', this).addClass('full_frame');
+    });
+
 });

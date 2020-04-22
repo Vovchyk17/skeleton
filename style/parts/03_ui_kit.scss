@@ -1,0 +1,107 @@
+@include headings() {
+  font-weight: 700;
+  padding-bottom: 20px;
+  line-height: 1.2;
+}
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+.button, .submit {
+  display: inline-block;
+  padding: 10px 25px;
+  font-size: 16px;
+  background: $bg;
+  color: #fff;
+  font-family: $f;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  min-width: 180px;
+  &:hover {
+    text-decoration: none;
+    opacity: 0.8;
+  }
+  &[disabled],
+  &.is_disabled {pointer-events: none}
+  & + .button {margin-left: 7px}
+}
+
+input[type="text"], input[type="email"], input[type="tel"], input[type="search"], input[type="password"], textarea {
+  height: $inputH;
+  width: 100%;
+  border: 1px solid #000;
+  background: #fff;
+  padding: 0 20px;
+  font-family: $f;
+  font-size: 14px;
+  &:focus {
+    border-color: $bg;
+  }
+  @include placeholder() {
+    color: $c;
+    opacity: 1;
+  }
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+  padding: 12px 20px;
+}
+
+.content {
+  ul {
+    margin: 0 0 20px 15px;
+    li {
+      padding: 5px 0 5px 15px;
+      position: relative;
+      &:before {
+        content: "";
+        background: $bg;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        position: absolute;
+        top: rem(15);
+        left: 0;
+      }
+    }
+  }
+  p {
+    padding-bottom: 20px;
+    line-height: 1.5;
+    > a {
+      color: $bg;
+      box-shadow: 0 2px;
+      text-decoration: none;
+      @include hover {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+.shrs {
+  a {
+    display: inline-block;
+    font-size: 18px;
+    margin-right: 10px;
+    @include hover {
+      text-decoration: none;
+    }
+    &.i_fcbk {color: #4267b2}
+    &.i_twttr {color: #1da1f2}
+    &.i_lnkdn {color: #0177b5}
+    &.i_pntrst {color: #d50c22}
+  }
+}

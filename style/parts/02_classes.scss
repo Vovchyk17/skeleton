@@ -1,0 +1,109 @@
+//Flex
+.flex {
+  @include flexbox;
+  @include justify-content(space-between);
+}
+
+.flex__rwd {
+  @include rwd-min(1025) {
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(space-between);
+  }
+}
+.flex__mob {
+  @include rwd-min(768) {
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(space-between);
+  }
+}
+
+.flex_start {
+  @include flexbox;
+  @include justify-content(flex-start);
+}
+
+.flex_end {
+  @include flexbox;
+  @include justify-content(flex-end);
+}
+
+.flex_around {
+  @include flexbox;
+  @include justify-content(space-around);
+}
+
+.flex_center {
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(center);
+}
+.flex_center__rwd {
+  @include rwd-min(1025) {
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(center);
+  }
+}
+.flex_center__mob {
+  @include rwd-min(768) {
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(center);
+  }
+}
+
+.alc {
+  @include flexbox;
+  @include justify-content(space-between);
+  @include align-items(center);
+}
+
+.al_start {
+  @include flexbox;
+  @include justify-content(space-between);
+  @include align-items(flex-start);
+}
+
+.al_end {
+  @include flexbox;
+  @include justify-content(space-between);
+  @include align-items(flex-end);
+}
+
+.rwd_show {
+  @include rwd-min(1025) {display: none !important}
+}
+.rwd_hide {
+  @include rwd-max(1024) {display: none !important}
+}
+
+.mob_show {
+  @include rwd-min(768) {display: none !important}
+}
+.mob_hide {
+  @include rwd-max(767) {display: none !important}
+}
+
+//Fullframe
+.full_frame {height: 0;margin: 0;overflow: hidden;padding-bottom: 56.5%;position: relative;z-index: 0;
+  > {
+    iframe, object, embed {height: 100%;left: 0;position: absolute;top: 0;width: 100%;z-index: -1}
+  }
+}
+
+.cover {
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.tac {
+  text-align: center;
+}
+
+.last_no_spacing > *:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}

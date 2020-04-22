@@ -1,14 +1,20 @@
-@import 'components/mixins';
-
 $w: 1140px;
 $c: #000;
-$bg: #0C59AF;
+$bg: #af3035;
 $inputH: 40px;
 $font-base: 14px;
-$f: "Open Sans";
+$f: 'Open Sans';
+$icons: 'icons';
 
-@import 'components/flexbox';
-@import 'components/reset';
-@import 'components/classes';
-@import 'components/code';
-//@import 'components/woo';
+//parts
+@import 'parts/00_mixins';
+@import 'parts/01_reset';
+@import 'parts/02_classes';
+@import 'parts/03_ui_kit';
+@import 'parts/04_apps';
+@import 'parts/05_header';
+@import 'parts/06_footer';
+//@import 'parts/woo';
+
+//templates
+@import 'templates/00_front_page';

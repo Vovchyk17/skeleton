@@ -1,0 +1,210 @@
+//RESET
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  min-width: 1px;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: none;
+}
+
+a, a:hover, input, textarea, select {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  outline: 0 none
+}
+
+ol {
+  list-style: decimal inside;
+  margin-bottom: 20px;
+  li {
+    padding: 5px 0 5px 15px;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+:focus {
+  outline: 0;
+}
+
+a img, fieldset, hr {
+  border: 0;
+}
+
+mark {
+  background: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td {
+  vertical-align: middle;
+}
+
+input[type="text"], input[type="email"], input[type="tel"], input[type="search"], select, textarea {
+  @include transition();
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+input[type="submit"], input[type="button"], button, .button {
+  @include transition();
+  -webkit-appearance: none;
+  cursor: pointer;
+  border: none;
+}
+
+hr {
+  clear: both;
+  overflow: hidden;
+  display: block;
+}
+
+article, aside, details, figcaption, figure, footer, header, nav, section, summary, main {
+  display: block;
+}
+
+.alignleft {
+  float: left;
+  margin: 0 30px 10px 0;
+}
+
+.alignright {
+  float: right;
+  margin: 0 0 10px 30px;
+}
+
+.aligncenter {
+  margin: 0 auto 20px;
+}
+
+.alignnone {
+  margin: 0 0 20px;
+}
+
+.alignleft, .aligncenter, .alignright {
+ @include rwd-max(1024) {
+   float: none;
+   margin: 0 auto 20px;
+ }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.valign {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 94%
+}
+
+.vfix {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  width: 0
+}
+
+// custom scrollbar
+html::-webkit-scrollbar {
+  width: 6px;
+  @include rwd-min(1025) {
+    width: 10px
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  background: $bg
+}
+
+::-webkit-scrollbar-track {
+  background: #eaeaea
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: darken($bg, 5%)
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: darken($bg, 5%)
+}
+
+html {
+  font: 400 #{$font-base}/1.5714 $f, sans-serif;
+  @include rwd-max(1024) {
+    font-size: 14px;
+  }
+}
+
+body {
+  color: $c;
+  @include flex-direction(column);
+  @include flexbox();
+  min-height: 100vh;
+}
+
+#main {
+  overflow: hidden;
+  @include flex(1, 0, auto);
+  width: 100%;
+}
+
+.container {
+  margin: 0 auto;
+  width: $w;
+  max-width: 94%;
+  position: relative;
+}
+
+p {
+  padding-bottom: 20px;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  @include transition();
+}
+
+small, sub {
+  display: inline-block;
+  vertical-align: baseline;
+  font-size: 87.5%;
+}
+
+strong {
+  font-weight: 700;
+}
+
+[class^="i_"] {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/*Add fonts*/
+//@include declare-font('fontawesome-regular', 'fa-regular-400');
+//@include declare-font('fontawesome-brands', 'fa-brands-400');
+//@include declare-font('fontawesome-solid', 'fa-solid-900');

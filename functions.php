@@ -1,8 +1,11 @@
 <?php
 
 // Recommended plugins installer
-require_once 'include/plugins/init.php';
-require_once('include/wpadmin/admin-addons.php');
+require_once 'inc/plugins/init.php';
+require_once('inc/wpadmin/admin-addons.php');
+
+// uncomment if need CPT
+//require_once('inc/cpt.php');
 
 function my_acf_init()
 {
@@ -19,7 +22,7 @@ function style_js()
         wp_enqueue_script( 'jquery' );
     };
 
-    wp_enqueue_script('lib', get_template_directory_uri() . '/js/lib.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('lib', get_template_directory_uri() . '/js/libs.js', array('jquery'), '1.0', true);
     wp_enqueue_script('logic', get_template_directory_uri() . '/js/logic.js', array('jquery'), '1.0', true);
 
     wp_enqueue_style('fonts', get_template_directory_uri() . '/style/fonts.css');
@@ -73,16 +76,6 @@ if(function_exists('acf_add_options_page') ) {
         'capability'    => 'edit_posts',
         'redirect'      => false
     ));
-/*	acf_add_options_sub_page(array(
-		'page_title'    => 'Theme Header Settings',
-		'menu_title'    => 'Header',
-		'parent_slug'   => 'theme-general-settings',
-	));
-	acf_add_options_sub_page(array(
-		'page_title'    => 'Theme Footer Settings',
-		'menu_title'    => 'Footer',
-		'parent_slug'   => 'theme-general-settings',
-	));*/
 }
 
 add_theme_support( 'post-thumbnails' );
@@ -261,31 +254,31 @@ function ajax_url() {
     echo '<script type="text/javascript">var ajax_url="' . admin_url('admin-ajax.php') . '";</script>';
 }
 
-function wpa_fontbase64($fonthash) {
-    $font = get_stylesheet_directory() . '/style/fonts.css';
-    $md5 = filemtime( $font );
-    $md5_cached = get_transient('fonts64_md5');
-    if( $md5_cached !== $md5 ) {
-        set_transient( 'fonts64_md5', $md5, 168 * 3600 );
-    }
-    if($fonthash) {
-        echo $md5_cached?$md5_cached:$md5;
-    } else {
-        $minfont = file_get_contents( $font );
-        $minfont = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $minfont);
-        $minfont = str_replace(array(': ',' : '), ':', $minfont);
-        $minfont = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $minfont);
-        $minfont = str_replace(';}','}', $minfont);
-        $fontpack = array(
-            'md5'      => $md5_cached,
-            'value'    => $minfont
-        );
-        echo json_encode($fontpack);
-        exit;
-    }
-}
-add_action('wp_ajax_wpa_fontbase64', 'wpa_fontbase64');
-add_action('wp_ajax_nopriv_wpa_fontbase64', 'wpa_fontbase64');
+//function wpa_fontbase64($fonthash) {
+//    $font = get_stylesheet_directory() . '/style/fonts.css';
+//    $md5 = filemtime( $font );
+//    $md5_cached = get_transient('fonts64_md5');
+//    if( $md5_cached !== $md5 ) {
+//        set_transient( 'fonts64_md5', $md5, 168 * 3600 );
+//    }
+//    if($fonthash) {
+//        echo $md5_cached?$md5_cached:$md5;
+//    } else {
+//        $minfont = file_get_contents( $font );
+//        $minfont = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $minfont);
+//        $minfont = str_replace(array(': ',' : '), ':', $minfont);
+//        $minfont = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $minfont);
+//        $minfont = str_replace(';}','}', $minfont);
+//        $fontpack = array(
+//            'md5'      => $md5_cached,
+//            'value'    => $minfont
+//        );
+//        echo json_encode($fontpack);
+//        exit;
+//    }
+//}
+//add_action('wp_ajax_wpa_fontbase64', 'wpa_fontbase64');
+//add_action('wp_ajax_nopriv_wpa_fontbase64', 'wpa_fontbase64');
 
 function cats($pid){
     $post_categories = wp_get_post_categories($pid);
@@ -297,6 +290,7 @@ function cats($pid){
     }
     return $cats;
 }
+
 
 /*//remove p tag > image
 function filter_ptags_on_images($content){
