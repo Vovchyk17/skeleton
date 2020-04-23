@@ -306,3 +306,7 @@ remove_action( 'woocommerce_before_shop_loop' , 'woocommerce_catalog_ordering', 
 remove_action( 'woocommerce_before_shop_loop' , 'woocommerce_result_count', 20 );
 add_theme_support( 'wc-product-gallery-lightbox' );
 add_theme_support( 'wc-product-gallery-slider' );*/
+
+function get_loader(){
+    return '<div class="show_box"><div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"/></svg></div></div>';
+}

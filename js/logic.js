@@ -75,14 +75,14 @@ $(window).on('load', function () {
    });*/
 
     // fluid video (iframe)
-    $('.content iframe').each(function(i) {
+    $('.content iframe').each(function (i) {
         var t = $(this),
             p = t.parent();
         if (p.is('p') && !p.hasClass('full_frame')) {
             p.addClass('full_frame');
         }
     });
-    $('.wp-video').each(function() {
+    $('.wp-video').each(function () {
         $('.mejs-video .mejs-inner', this).addClass('full_frame');
     });
 

@@ -1,10 +1,10 @@
 <?php get_header(); ?>
 <section class="content">
     <div class="container">
-        <article>
-            <h1><?php echo get_the_title(BLOG_ID); ?></h1>
+        <h1><?php echo get_the_title(BLOG_ID); ?></h1>
+        <article class="blog_posts">
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-                <div class="post">
+                <div class="blog_post">
                     <?php if (has_post_thumbnail()) { ?>
                         <a class="thumb" href="<?php the_permalink(); ?>">
                             <?php the_post_thumbnail(); ?>
@@ -26,7 +26,7 @@
                 </div>
             <?php endwhile; endif; ?>
         </article>
-        <?php echo ( is_active_sidebar( 'blog_sidebar' ) ) ? '<aside>'. dynamic_sidebar('blog_sidebar') .'</aside>' : ''; ?>
+        <?php /*echo ( is_active_sidebar( 'blog_sidebar' ) ) ? '<aside>'. dynamic_sidebar('blog_sidebar') .'</aside>' : ''; */?>
     </div>
 </section>
 <?php get_footer(); ?>
